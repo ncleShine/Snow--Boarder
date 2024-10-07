@@ -12,8 +12,8 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] float baseSpeed = 20f;
 
     Rigidbody2D rb2d;
-
     SurfaceEffector2D surfaceEffector;
+    bool canMove = true;
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +27,15 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
 
     {
+        if(canMove)
         RotatePlayer();
         RespondToBoost();
 
+    }
+
+    public void DisableControl()
+    {
+        canMove = false;
     }
 
     void RotatePlayer()
